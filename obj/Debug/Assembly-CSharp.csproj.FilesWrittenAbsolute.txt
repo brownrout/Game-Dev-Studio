@@ -15,3 +15,20 @@
 /Users/brownrout/Orbit/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/brownrout/Orbit/obj/Debug/Assembly-CSharp.dll
 /Users/brownrout/Orbit/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/obj/Debug/Assembly-CSharp.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/UnityEngine.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/UnityEditor.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Mono.Cecil.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Unity.DataContract.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/benjaminstrick/Documents/Senior Year EECS/Game Dev Studio/Game-Dev-Studio/Temp/bin/Debug/Assembly-CSharp.dll

@@ -4,7 +4,7 @@ using System.Collections;
 public class Earth : MonoBehaviour {
 
 	public GameObject missilePrefab;
-	public float speed = 4.0f;
+	private float missile_speed = 4.0f;
 
 	// Update is called once per frame
 	void Update () {
@@ -15,7 +15,7 @@ public class Earth : MonoBehaviour {
 			direction.Normalize();
 			Quaternion rotation = Quaternion.Euler( 0, 0, Mathf.Atan2 ( direction.y, direction.x ) * Mathf.Rad2Deg );
 			GameObject projectile = (GameObject)Instantiate(missilePrefab, earthPos, rotation);
-			projectile.GetComponent<Rigidbody2D>().velocity = direction * speed;
+			projectile.GetComponent<Rigidbody2D>().velocity = direction * missile_speed;
 		}
 	}
 }
