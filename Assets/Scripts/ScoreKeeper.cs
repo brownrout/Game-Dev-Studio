@@ -7,8 +7,12 @@ public class ScoreKeeper : MonoBehaviour {
 	float counter = 0.0f;
 
 	void Update () {
-		counter += Time.deltaTime;
-		UpdateScoreText();
+		GameObject EarthDestroyed = GameObject.Find("earth");
+		Earth earth = EarthDestroyed.GetComponent<Earth> ();
+		if (!earth.gameOver) {
+			counter += Time.deltaTime;
+			UpdateScoreText ();
+		}
 	}
 
 	private void UpdateScoreText () {
