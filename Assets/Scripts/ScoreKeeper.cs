@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
 
-	float counter = 0.0f;
+	public float counter = 0.0f;
 
 	void Update () {
 		GameObject EarthDestroyed = GameObject.Find("earth");  

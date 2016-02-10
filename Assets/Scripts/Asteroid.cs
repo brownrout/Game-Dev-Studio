@@ -4,7 +4,7 @@ using System.Collections;
 public class Asteroid : MonoBehaviour {
 
 	private float asteroid_speed = Random.Range(4F, 6F);
-	private float destroy_time = 20.0f;
+	private float destroy_time = 30.0f;
 
 	// Use this for initialization
 	void Start () {
