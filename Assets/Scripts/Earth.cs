@@ -9,7 +9,7 @@ public class Earth : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && !gameOver) {
 			Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 			Vector2 earthPos = new Vector2(transform.position.x, transform.position.y);
 			Vector2 direction = mousePos - earthPos;

@@ -38,6 +38,9 @@ public class Asteroid : MonoBehaviour {
 			Destroy (this.gameObject);
 		} else if (col.gameObject.name == "missile(Clone)") {
 			Destroy (this.gameObject);
+			GameObject oreScore = GameObject.Find("OreText");  
+			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
+			OreText.increaseOre (50);
 		}
 	}
 

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Missile : MonoBehaviour { 
 
+
+
 	void FixedUpdate() {
 		GameObject Earth2 = GameObject.Find("earth");
 		Physics2D.IgnoreCollision(Earth2.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -15,6 +17,7 @@ public class Missile : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "asteroid(Clone)") {
 			Destroy (this.gameObject);
+
 		}
 	}
 }
