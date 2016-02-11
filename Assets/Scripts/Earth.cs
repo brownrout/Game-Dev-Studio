@@ -7,6 +7,7 @@ public class Earth : MonoBehaviour {
 	private float missile_speed = 6.0f;
 	public bool gameOver = false;
 
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown(0) && !gameOver) {

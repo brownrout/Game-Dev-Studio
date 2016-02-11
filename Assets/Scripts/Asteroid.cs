@@ -36,7 +36,7 @@ public class Asteroid : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "earth") {
 			Destroy (this.gameObject);
-		} else if (col.gameObject.name == "missile(Clone)") {
+		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)") {
 			Destroy (this.gameObject);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();

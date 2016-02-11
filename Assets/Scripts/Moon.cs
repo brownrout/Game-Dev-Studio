@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Moon : MonoBehaviour {
 
-	public float angle = 90.0f;
+	public float moon_angle = 90.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -12,14 +12,17 @@ public class Moon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.gameObject.transform.position = new Vector2 (Mathf.Sin (angle)*2.5f,Mathf.Cos (angle)*2.5f);
-		angle -= .025f;
+		this.gameObject.transform.position = new Vector2 (Mathf.Sin (moon_angle)*2.2f,Mathf.Cos (moon_angle)*2.2f);
+		moon_angle -= .025f;
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "missile(Clone)")  {
 			Destroy (this.gameObject);
-
+			GameObject oreScore = GameObject.Find("OreText");  
+			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
+			OreText.increaseOre (250);
 		}
 	}
 }
+

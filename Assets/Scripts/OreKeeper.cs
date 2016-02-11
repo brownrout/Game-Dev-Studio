@@ -21,7 +21,7 @@ public class OreKeeper : MonoBehaviour {
 	private void UpdateButton () {
 		GameObject buyButton = GameObject.Find("purchaseSatellite");  
 		Button button = buyButton.GetComponent<Button> ();
-		if (totalOre <= 250) {
+		if (totalOre < 250) {
 			button.enabled = false;
 		} else
 			button.enabled = true;
