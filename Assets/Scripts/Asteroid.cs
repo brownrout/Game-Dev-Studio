@@ -40,7 +40,7 @@ public class Asteroid : MonoBehaviour {
 			Destroy (this.gameObject);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
-			OreText.increaseOre (50);
+			OreText.increaseOre (25);
 		}
 	}
 
