@@ -5,6 +5,7 @@ public class Asteroid : MonoBehaviour {
 
 	private float asteroid_speed = Random.Range(4F, 6F);
 	private float destroy_time = 30.0f;
+	public GameObject BrownExplosion;
 
 	// Use this for initialization
 	void Start () {
@@ -37,11 +38,18 @@ public class Asteroid : MonoBehaviour {
 		if (col.gameObject.name == "earth") {
 			Destroy (this.gameObject);
 		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)") {
+			PlayExplosion ();
 			Destroy (this.gameObject);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			OreText.increaseOre (25);
 		}
+	}
+
+
+	void PlayExplosion() {
+		GameObject explosion = (GameObject)Instantiate(BrownExplosion);
+		explosion.transform.position = transform.position;
 	}
 
 }

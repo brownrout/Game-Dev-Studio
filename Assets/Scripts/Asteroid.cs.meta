@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 10c931f4cd20f475e829e7d4d4a3fee7
-timeCreated: 1454385164
+timeCreated: 1456268920
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BrownExplosion: {fileID: 100230, guid: a6148c5620afd416badad361cb1bd0f9, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

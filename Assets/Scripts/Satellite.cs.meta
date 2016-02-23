@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 72e01aac43d064c9b823d4f62c51f1b7
-timeCreated: 1455225249
+timeCreated: 1456265771
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - RedExplosion: {fileID: 145852, guid: 6e7413d1b3c9445c0981f7b2e48c41b6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

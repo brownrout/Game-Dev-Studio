@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Missile : MonoBehaviour { 
 
+	public GameObject ExplosionGOprefab;
 
 
 	void FixedUpdate() {
@@ -18,5 +19,5 @@ public class Missile : MonoBehaviour {
 		if (col.gameObject.name == "asteroid(Clone)" || col.gameObject.name == "moon" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)")  {
 			Destroy (this.gameObject);
 		}
-	}
+	}		
 }

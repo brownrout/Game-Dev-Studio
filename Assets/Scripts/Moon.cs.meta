@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 0b6b790249af24efca170295ec395780
-timeCreated: 1455223035
+timeCreated: 1456269210
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GrayExplosion: {fileID: 152020, guid: 8bc3e7f47cc974653a7dcd6ba01ffa54, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

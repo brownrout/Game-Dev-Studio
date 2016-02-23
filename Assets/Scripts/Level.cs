@@ -15,6 +15,16 @@ public class Level : MonoBehaviour {
 		myText.SetActive(false);
 		InvokeRepeating ("LevelUp",1.0f,1.5f);
 	}
+
+	void Update() {
+		UpdateLevelStatus ();
+	}
+
+	void UpdateLevelStatus () {
+		GameObject lvlStat = GameObject.Find("LevelStatus"); 
+		Text levelStatText = lvlStat.GetComponent<Text>();
+		levelStatText.text = string.Format("Level {0}", lvl);
+	}
 	
 	// Update is called once per frame
 	void LevelUp () {
