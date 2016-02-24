@@ -14,7 +14,7 @@ public class Satellite : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.gameObject.transform.position = new Vector2 (1.8f*Mathf.Sin (satellite_angle)*radius, Mathf.Cos (satellite_angle)*radius);
+		this.gameObject.transform.position = new Vector2 (1.7f*Mathf.Sin (satellite_angle)*radius, 0.88f*Mathf.Cos (satellite_angle)*radius);
 		if (satType == 1) {
 			satellite_angle -= .03f;
 		} else if (satType == 2) {
@@ -23,9 +23,11 @@ public class Satellite : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.name == "missile(Clone)")  {
+		if (col.gameObject.name == "missile(Clone)") {
 			PlayExplosion ();
 			Destroy (this.gameObject);
+		} else if (col.gameObject.name == "satellite2(Clone)" || col.gameObject.name == "satellite(Clone)") {
+			Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		}
 	}
 

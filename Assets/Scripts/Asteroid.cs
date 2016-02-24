@@ -12,21 +12,21 @@ public class Asteroid : MonoBehaviour {
 
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint (transform.position);
 
-		if ( screenPosition.x < 0) {
+		if ( screenPosition.x < 0 && screenPosition.y > Screen.height) {
 			Vector2 dir = Vector2.right;
-			dir.y = Random.Range (-0.7F, 0.7F);
+			dir.y = Random.Range (-0.1F, -2.0F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;
-		} else if ( screenPosition.x > Screen.width ) {
+		} else if ( screenPosition.x > Screen.width && screenPosition.y > Screen.height ) {
 			Vector2 dir = Vector2.left;
-			dir.y = Random.Range (-0.7F, 0.7F);
+			dir.y = Random.Range (-0.1F, -2.0F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
-		} else if ( screenPosition.y < 0 ) {
-			Vector2 dir = Vector2.up;
-			dir.x = Random.Range (-0.7F, 0.7F);
+		} else if ( screenPosition.x < 0 && screenPosition.y < 0 ) {
+			Vector2 dir = Vector2.right;
+			dir.y = Random.Range (0.1F, 2.0F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
-		} else if ( screenPosition.y > Screen.height ) {
-			Vector2 dir = Vector2.down;
-			dir.x = Random.Range (-0.7F, 0.7F);
+		} else if ( screenPosition.x > Screen.width && screenPosition.y < 0 ) {
+			Vector2 dir = Vector2.left;
+			dir.y = Random.Range (0.1F, 2.0F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
 		}
 

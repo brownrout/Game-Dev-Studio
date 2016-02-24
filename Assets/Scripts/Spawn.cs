@@ -49,6 +49,7 @@ public class Spawn : MonoBehaviour {
 		GameObject EarthDestroyed = GameObject.Find("earth");
 		Earth earth = EarthDestroyed.GetComponent<Earth> ();
 		if (!earth.gameOver) {
+//			float offset = Random.Range(0,1.0f);
 			Instantiate (asteroidPrefab, transform.position, Quaternion.identity);
 			Invoke ("SpawnAsteroid", randTime);
 		}
