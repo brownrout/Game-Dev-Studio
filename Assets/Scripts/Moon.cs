@@ -27,7 +27,7 @@ public class Moon : MonoBehaviour {
 		}
 	}
 
-	void PlayExplosion() {
+	public void PlayExplosion() {
 		GameObject explosion = (GameObject)Instantiate(GrayExplosion);
 		explosion.transform.position = transform.position;
 	}

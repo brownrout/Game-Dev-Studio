@@ -39,6 +39,12 @@ public class SpawnSatellite : MonoBehaviour {
 			print("Second Satellite");
 			GameObject satellite2 = (GameObject)Instantiate(satellite2Prefab, satPos, Quaternion.identity);
 			satellite2.GetComponent<Satellite>().satType = type;
+			GameObject satellite2Help = (GameObject)Instantiate(satellite2Prefab, satellite2.transform.position , Quaternion.identity);
+			satellite2Help.transform.localScale = new Vector2 (.5f, .5f);
+			satellite2Help.GetComponent<CircleCollider2D>().transform.localScale = new Vector2 (.5f, .5f);
+			satellite2Help.GetComponent<Satellite>().parent = satellite2;
+			satellite2Help.GetComponent<Satellite>().satType = 0;
+			satellite2.GetComponent<Satellite>().child = satellite2Help;
 		}
 	}
 

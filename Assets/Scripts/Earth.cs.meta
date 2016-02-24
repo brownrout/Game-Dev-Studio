@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: bd6683c1cc7f44723804baec50d1dd90
-timeCreated: 1454036552
+timeCreated: 1456354928
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - missilePrefab: {fileID: 186560, guid: 8951cd2d8279542ef8f12fc600b6f6e6, type: 2}
+  - EarthExplode: {fileID: 166224, guid: e03916b7c92354e80ab8c4d7418217d9, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

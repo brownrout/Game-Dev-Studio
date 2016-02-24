@@ -36,6 +36,7 @@ public class Asteroid : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "earth") {
+			PlayExplosion ();
 			Destroy (this.gameObject);
 		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)") {
 			PlayExplosion ();
@@ -47,7 +48,7 @@ public class Asteroid : MonoBehaviour {
 	}
 
 
-	void PlayExplosion() {
+	public void PlayExplosion() {
 		GameObject explosion = (GameObject)Instantiate(BrownExplosion);
 		explosion.transform.position = transform.position;
 	}
