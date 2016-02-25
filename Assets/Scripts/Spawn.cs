@@ -25,16 +25,16 @@ public class Spawn : MonoBehaviour {
 		switch (level.lvl)
 		{
 		case 1:
-			randTime = Random.Range (4.0f, 7.0f);
+			randTime = Random.Range (5.0f, 8.0f);
 			break;
 		case 2:
-			randTime = Random.Range (3.0f, 6.0f);
+			randTime = Random.Range (4.0f, 7.0f);
 			break;
 		case 3:
-			randTime = Random.Range (2.0f, 5.0f);
+			randTime = Random.Range (3.0f, 6.0f);
 			break;
 		case 4:
-			randTime = Random.Range (2.0f, 4.0f);
+			randTime = Random.Range (2.0f, 5.0f);
 			break;
 		case 5:
 			randTime = Random.Range (1.5f, 3.0f);

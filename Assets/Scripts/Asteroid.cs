@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Asteroid : MonoBehaviour {
 
-	private float asteroid_speed = Random.Range(4F, 6F);
+	private float asteroid_speed = Random.Range(3.5F, 6F);
 	private float destroy_time = 30.0f;
 	public GameObject BrownExplosion;
 
@@ -12,21 +12,31 @@ public class Asteroid : MonoBehaviour {
 
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint (transform.position);
 
-		if ( screenPosition.x < 0 && screenPosition.y > Screen.height) {
+		if ( screenPosition.x < 0 && screenPosition.y > Screen.height) { //top left
 			Vector2 dir = Vector2.right;
-			dir.y = Random.Range (-0.1F, -2.0F);
+			dir.y = Random.Range (-0.3F, -1.3F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;
-		} else if ( screenPosition.x > Screen.width && screenPosition.y > Screen.height ) {
+		} else if ( screenPosition.x > Screen.width && screenPosition.y > Screen.height ) { //top right
 			Vector2 dir = Vector2.left;
-			dir.y = Random.Range (-0.1F, -2.0F);
+			dir.y = Random.Range (-0.3F, -1.3F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
-		} else if ( screenPosition.x < 0 && screenPosition.y < 0 ) {
+		} else if ( screenPosition.x < 0 && screenPosition.y < 0 ) { //bottom left
 			Vector2 dir = Vector2.right;
-			dir.y = Random.Range (0.1F, 2.0F);
+			dir.y = Random.Range (0.3F, 1.3F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
-		} else if ( screenPosition.x > Screen.width && screenPosition.y < 0 ) {
+		} else if ( screenPosition.x > Screen.width && screenPosition.y < 0 ) {  //bottom right
 			Vector2 dir = Vector2.left;
-			dir.y = Random.Range (0.1F, 2.0F);
+			dir.y = Random.Range (0.3F, 1.3F);
+			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
+		}
+		else if ( screenPosition.x > Screen.width && screenPosition.y > 0  && screenPosition.y < Screen.height) {  //right
+			Vector2 dir = Vector2.left;
+			dir.y = Random.Range (-0.3F, 0.3F);
+			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
+		}
+		else if ( screenPosition.x < 0 && screenPosition.y > 0  && screenPosition.y < Screen.height) {  //left
+			Vector2 dir = Vector2.right;
+			dir.y = Random.Range (-0.3F, 0.3F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
 		}
 
