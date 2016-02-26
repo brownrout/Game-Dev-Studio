@@ -39,7 +39,7 @@ public class Asteroid : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
 		}
 
-		Destroy (this.gameObject, destroy_time);
+		Destroy (this.gameObject, destroy_time);  //destroy asteroids that have flown off screen
 
 	}
 
@@ -50,7 +50,11 @@ public class Asteroid : MonoBehaviour {
 			PlayExplosion (this.asteroidType);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
+
+			if (this.asteroidType == 2) {  //bigger asteroids give this much additional ore
 			OreText.increaseOre (25);
+			}
+			OreText.increaseOre (25);  //smaller asteroids give the baseline ore
 		}
 	}
 

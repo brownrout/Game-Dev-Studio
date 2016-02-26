@@ -47,10 +47,19 @@ public class Level : MonoBehaviour {
 
 	}
 
-	IEnumerator Wait() 
+	IEnumerator Wait() //turn level text off after 3 seconds
 	{
-		yield return new WaitForSeconds(4);
+		yield return new WaitForSeconds(.5f);
 		myText.SetActive( false );
+		yield return new WaitForSeconds(.5f);
+		myText.SetActive(true);
+		yield return new WaitForSeconds(.5f);
+		myText.SetActive( false );
+		yield return new WaitForSeconds(.5f);
+		myText.SetActive(true);
+		yield return new WaitForSeconds(.5f);
+		myText.SetActive( false );
+
 	}
 
 }

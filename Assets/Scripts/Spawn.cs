@@ -11,7 +11,7 @@ public class Spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Random time range between each asteroid spawn
-		randTime = Random.Range (3.0f, 7.0f);
+		randTime = Random.Range (4.0f, 10.0f);
 		initialDelay = Random.Range (0.5f, 5.0f);
 		Invoke ("SpawnAsteroid", initialDelay);
 	}
@@ -25,13 +25,13 @@ public class Spawn : MonoBehaviour {
 		{
 		// progressive level difficulty
 		case 1:
-			randTime = Random.Range (5.0f, 8.0f);
+			randTime = Random.Range (8.0f, 12.0f);
 			break;
 		case 2:
-			randTime = Random.Range (4.0f, 7.0f);
+			randTime = Random.Range (6.0f, 9.0f);
 			break;
 		case 3:
-			randTime = Random.Range (3.0f, 6.0f);
+			randTime = Random.Range (3.0f, 7.0f);
 			break;
 		case 4:
 			randTime = Random.Range (2.0f, 5.0f);
