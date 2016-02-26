@@ -20,7 +20,6 @@ public class Moon : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "missile(Clone)")  {
 			PlayExplosion();
-			Destroy (this.gameObject);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			OreText.increaseOre (250);
@@ -30,6 +29,7 @@ public class Moon : MonoBehaviour {
 	public void PlayExplosion() {
 		GameObject explosion = (GameObject)Instantiate(GrayExplosion);
 		explosion.transform.position = transform.position;
+		Destroy (this.gameObject);
 	}
 }
 

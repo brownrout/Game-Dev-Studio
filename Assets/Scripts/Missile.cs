@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.name == "asteroid(Clone)" || col.gameObject.name == "moon" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)")  {
+		if (col.gameObject.name == "asteroid(Clone)" || col.gameObject.name == "asteroid2(Clone)" || col.gameObject.name == "moon" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)")  {
 			Destroy (this.gameObject);
 		}
 	}		

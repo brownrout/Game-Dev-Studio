@@ -19,19 +19,23 @@ public class OreKeeper : MonoBehaviour {
 	}
 
 	private void UpdateButton () {
+
+		GameObject EarthDestroyed = GameObject.Find("earth");  
+		Earth earth = EarthDestroyed.GetComponent<Earth> ();
+
 		GameObject buyButton = GameObject.Find("purchaseSatellite");  
 		GameObject buyButton2 = GameObject.Find("purchaseSatellite2");  
 
 		Button button = buyButton.GetComponent<Button> ();
 		Button button2 = buyButton2.GetComponent<Button> ();
 
-		if (totalOre < 250) {
+		if (totalOre < 250 || earth.gameOver) {
 			button.enabled = false;
 		} else {
 			button.enabled = true;
 		}
 
-		if (totalOre < 450) {
+		if (totalOre < 450 || earth.gameOver) {
 			button2.enabled = false;
 		} else {
 			button2.enabled = true;

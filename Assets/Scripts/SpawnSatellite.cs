@@ -8,7 +8,11 @@ public class SpawnSatellite : MonoBehaviour {
 	public GameObject satellite2Prefab;
 
 	void Update() {
-		if (Input.GetKeyDown("1")) {
+
+		GameObject EarthDestroyed = GameObject.Find("earth");  
+		Earth earth = EarthDestroyed.GetComponent<Earth> ();
+
+		if (Input.GetKeyDown("1") && !earth.gameOver) {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			if (OreText.totalOre >= 250) {
@@ -17,7 +21,7 @@ public class SpawnSatellite : MonoBehaviour {
 				buySatellite (1);
 			}
 		}
-		else if (Input.GetKeyDown("2")) {
+		else if (Input.GetKeyDown("2") && !earth.gameOver) {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			if (OreText.totalOre >= 450) {

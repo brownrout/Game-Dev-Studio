@@ -17,7 +17,7 @@ public class Satellite : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (satType != 0) {
-			this.gameObject.transform.position = new Vector2 (1.7f * Mathf.Sin (satellite_angle) * radius, 0.88f * Mathf.Cos (satellite_angle) * radius);
+			this.gameObject.transform.position = new Vector2 (1.55f * Mathf.Sin (satellite_angle) * radius, 0.86f * Mathf.Cos (satellite_angle) * radius);
 			if (satType == 1) {
 				satellite_angle -= .03f;
 			} else if (satType == 2) {
@@ -39,7 +39,6 @@ public class Satellite : MonoBehaviour {
 
 			if (this.satType == 2) {
 				this.child.GetComponent<Satellite>().PlayExplosion(2);
-				Destroy (this.child);
 			}
 			Destroy (this.gameObject);
 		} else if (col.gameObject.name == "satellite2(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "moon") {
@@ -51,10 +50,12 @@ public class Satellite : MonoBehaviour {
 		if (x == 1) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.position = transform.position;
+			Destroy (this.gameObject);
 		} else {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.localScale = new Vector2 (.5f, .5f);
 			explosion.transform.position = transform.position;
+			Destroy (this.gameObject);
 		}
 	}
 }

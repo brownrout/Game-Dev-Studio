@@ -20,21 +20,35 @@ public class Earth : MonoBehaviour {
 			GameObject projectile = (GameObject)Instantiate(missilePrefab, earthPos, rotation);
 			projectile.GetComponent<Rigidbody2D>().velocity = direction * missile_speed;
 		}
+
+		if (Input.GetKeyDown("0") && gameOver) {
+			Application.LoadLevel (Application.loadedLevel);
+		}	
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.name == "asteroid(Clone)") {
+		if (col.gameObject.name == "asteroid(Clone)" || col.gameObject.name == "asteroid2(Clone)") {
 			this.transform.localScale = new Vector2 (0, 0);
 			PlayExplosion();
 			gameOver = true;
-			foreach (var gameObj in FindObjectsOfType(typeof(Asteroid)) as Asteroid[]) {
-				gameObj.GetComponent<Asteroid> ().PlayExplosion();
-				Destroy(gameObj);
-			}
-			foreach (var gameObj in FindObjectsOfType(typeof(Satellite)) as Satellite[]) {
-				gameObj.GetComponent<Satellite> ().PlayExplosion(gameObj.GetComponent<Satellite>().satType);
-				Destroy(gameObj);
-			}
+			gameOverHelp ();
+		}
+	}
+
+	void gameOverHelp() {
+		// blow everything up
+
+		GameObject moon = GameObject.Find("moon");
+		if (moon != null) {
+			moon.GetComponent<Moon> ().PlayExplosion ();
+		}
+
+		foreach (var gameObj in FindObjectsOfType(typeof(Asteroid)) as Asteroid[]) {
+			gameObj.GetComponent<Asteroid> ().PlayExplosion(gameObj.GetComponent<Asteroid> ().asteroidType);
+		}
+
+		foreach (var gameObj in FindObjectsOfType(typeof(Satellite)) as Satellite[]) {
+			gameObj.GetComponent<Satellite> ().PlayExplosion(gameObj.GetComponent<Satellite>().satType);
 		}
 	}
 
