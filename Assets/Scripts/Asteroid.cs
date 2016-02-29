@@ -7,12 +7,12 @@ public class Asteroid : MonoBehaviour {
 	private float destroy_time = 30.0f;
 	public GameObject BrownExplosion;
 	public int asteroidType;
+	public bool destroyable = false;
 
 	// Use this for initialization
 	void Start () {
-
+		StartCoroutine (Wait());
 		Vector2 screenPosition = Camera.main.WorldToScreenPoint (transform.position);
-
 		if ( screenPosition.x < 0 && screenPosition.y > Screen.height) { //top left
 			Vector2 dir = Vector2.right;
 			dir.y = Random.Range (-0.3F, -1.3F);
@@ -38,15 +38,23 @@ public class Asteroid : MonoBehaviour {
 			dir.y = Random.Range (-0.3F, 0.3F);
 			GetComponent<Rigidbody2D> ().velocity = dir.normalized * asteroid_speed;	
 		}
-
 		Destroy (this.gameObject, destroy_time);  //destroy asteroids that have flown off screen
 
+	}
+
+	void FixedUpdate() {
+		Vector2 screenPosition = Camera.main.WorldToScreenPoint (transform.position);
+		if(destroyable) {
+			if (screenPosition.y > Screen.height || screenPosition.y < 0 || screenPosition.x > Screen.width || screenPosition.x < 0) {
+				Destroy (this.gameObject);
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.name == "earth") {
 			PlayExplosion (this.asteroidType);
-		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)") {
+		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)" || col.gameObject.name == "satellite3(Clone)" || col.gameObject.name == "satellite3(Clone)(Clone)") {
 			PlayExplosion (this.asteroidType);
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
@@ -72,4 +80,9 @@ public class Asteroid : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Wait() //turn level text off after 3 seconds
+	{
+		yield return new WaitForSeconds(3.0f);
+		destroyable = true;
+	}
 }

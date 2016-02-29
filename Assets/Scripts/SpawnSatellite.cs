@@ -67,7 +67,6 @@ public class SpawnSatellite : MonoBehaviour {
 			print("Third Satellite");
 			GameObject satellite3 = (GameObject)Instantiate(satellite3Prefab, satPos, Quaternion.identity);
 			satellite3.GetComponent<Satellite>().satType = type;
-
 		}
 	}
 
