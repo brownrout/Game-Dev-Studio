@@ -22,8 +22,10 @@ public class Satellite : MonoBehaviour {
 				satellite_angle -= .03f;
 			} else if (satType == 2) {
 				satellite_angle -= .01f;
+			} else if (satType == 3) {
+				satellite_angle -= .02f;
 			}
-		} else {
+		} else {  //the inception child
 			this.gameObject.transform.position = new Vector2 (parent.transform.position.x + Mathf.Sin (satellite_angle) * .95f, parent.transform.position.y + Mathf.Cos (satellite_angle) * .95f);
 			satellite_angle -= .07f;
 		}

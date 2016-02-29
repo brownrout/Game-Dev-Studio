@@ -31,7 +31,7 @@ public class Spawn : MonoBehaviour {
 			randTime = Random.Range (6.0f, 9.0f);
 			break;
 		case 3:
-			randTime = Random.Range (3.0f, 7.0f);
+			randTime = Random.Range (3.0f, 7.0f); 
 			break;
 		case 4:
 			randTime = Random.Range (2.0f, 5.0f);
