@@ -35,7 +35,7 @@ public class Level : MonoBehaviour {
 		GameObject EarthDestroyed = GameObject.Find("earth");  
 		Earth earth = EarthDestroyed.GetComponent<Earth> ();
 
-		if ( (int)scoreText.counter % 20 == 0 && !earth.gameOver) {
+		if ( (int)scoreText.counter % 20 == 0 && !earth.gameOver && (int)scoreText.counter != 0) {
 			lvl += 1;
 			print (lvl);
 			myText.SetActive(true);

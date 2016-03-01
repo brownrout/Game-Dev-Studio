@@ -36,12 +36,24 @@ public class Earth : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown("space") && gameOver) {
+
+//			GameObject Spawn = GameObject.Find("SpawnRight");  
+//			Spawn spawn = Spawn.GetComponent<Spawn>();
+		
 			if (firstTime) {
 				gameOver = false;
+//				spawn.StartAlt ();
+				foreach (var gameObj in FindObjectsOfType(typeof(Spawn)) as Spawn[]) {
+					gameObj.GetComponent<Spawn> ().StartAlt();
+				}
 			} else {
 				Application.LoadLevel (Application.loadedLevel);
 				firstTime = false;
 				gameOver = false;
+//				spawn.StartAlt ();
+				foreach (var gameObj in FindObjectsOfType(typeof(Spawn)) as Spawn[]) {
+					gameObj.GetComponent<Spawn> ().StartAlt();
+				}
 			}
 		}
 

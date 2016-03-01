@@ -52,7 +52,12 @@ public class Asteroid : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.name == "earth") {
+		if (col.gameObject.name == "moon" && this.asteroidType == 3) {
+			PlayExplosion (this.asteroidType);
+		} else if (col.gameObject.name == "satellite3(Clone)(Clone)" && this.asteroidType == 3) {
+			// Do Nothing for the Asteroids
+		}
+		else if (col.gameObject.name == "earth") {
 			PlayExplosion (this.asteroidType);
 		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)" || col.gameObject.name == "satellite3(Clone)" || col.gameObject.name == "satellite3(Clone)(Clone)") {
 			PlayExplosion (this.asteroidType);
@@ -69,13 +74,18 @@ public class Asteroid : MonoBehaviour {
 
 	public void PlayExplosion(int x) {
 		if (x == 1) {
-			GameObject explosion = (GameObject)Instantiate(BrownExplosion);
+			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
 			explosion.transform.position = transform.position;
 			Destroy (this.gameObject);
-		} else {
-			GameObject explosion = (GameObject)Instantiate(BrownExplosion);
+		} else if (x == 2) {
+			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
 			explosion.transform.position = transform.position;
 			explosion.transform.localScale = new Vector2 (2f, 2f);
+			Destroy (this.gameObject);
+		} else {
+			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
+			explosion.transform.position = transform.position;
+			explosion.transform.localScale = new Vector2 (.5f, .5f);
 			Destroy (this.gameObject);
 		}
 	}

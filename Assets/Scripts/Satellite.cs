@@ -59,8 +59,8 @@ public class Satellite : MonoBehaviour {
 			.FirstOrDefault();
 		if (closestGameObject != null) {
 			GameObject satellite3Help = (GameObject)Instantiate (satellite3Prefab, this.transform.position, Quaternion.identity);
-			satellite3Help.transform.localScale = new Vector2 (.3f, .3f);
-			satellite3Help.GetComponent<CircleCollider2D> ().transform.localScale = new Vector2 (.3f, .3f);
+			satellite3Help.transform.localScale = new Vector2 (.4f, .4f);
+			satellite3Help.GetComponent<CircleCollider2D> ().transform.localScale = new Vector2 (.4f, .4f);
 			satellite3Help.GetComponent<Satellite> ().satType = -1;
 			satellite3Help.GetComponent<Satellite> ().target = closestGameObject;
 		}
@@ -68,7 +68,7 @@ public class Satellite : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.name == "missile(Clone)") {
+		if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "asteroid3(Clone)") {
 			if (this.satType == 0) {
 				PlayExplosion (2);
 			} else if (this.satType == -1) {
@@ -93,14 +93,20 @@ public class Satellite : MonoBehaviour {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.position = transform.position;
 			Destroy (this.gameObject);
-		} else if (x == 2) {
+		} else if (x == 0) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.localScale = new Vector2 (.5f, .5f);
 			explosion.transform.position = transform.position;
 			Destroy (this.gameObject);
+		} 
+		else if (x == 2) {
+			GameObject explosion = (GameObject)Instantiate (RedExplosion);
+			// explosion.transform.localScale = new Vector2 (.5f, .5f);
+			explosion.transform.position = transform.position;
+			Destroy (this.gameObject);
 		} else if (x == 3) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
-			explosion.transform.localScale = new Vector2 (.3f, .3f);
+			explosion.transform.localScale = new Vector2 (.4f, .4f);
 			explosion.transform.position = transform.position;
 			Destroy (this.gameObject);
 		}
