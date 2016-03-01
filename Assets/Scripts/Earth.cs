@@ -5,9 +5,16 @@ public class Earth : MonoBehaviour {
 
 	public GameObject missilePrefab;
 	private float missile_speed = 6.0f;
-	public bool gameOver = false;
+	public bool gameOver;
+	public bool firstTime = true;
 	public GameObject EarthExplode;
+	public GameObject gameOverText;
 
+
+	void Start() {
+		gameOver = true;
+		gameOverText.SetActive (true);
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -21,9 +28,23 @@ public class Earth : MonoBehaviour {
 			projectile.GetComponent<Rigidbody2D>().velocity = direction * missile_speed;
 		}
 
-		if (Input.GetKeyDown("0") && gameOver) {
-			Application.LoadLevel (Application.loadedLevel);
-		}	
+		if (gameOver) {
+			gameOverText.SetActive(true);
+		}
+		else {
+			gameOverText.SetActive(false);
+		}
+
+		if (Input.GetKeyDown("space") && gameOver) {
+			if (firstTime) {
+				gameOver = false;
+			} else {
+				Application.LoadLevel (Application.loadedLevel);
+				firstTime = false;
+				gameOver = false;
+			}
+		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
@@ -31,6 +52,7 @@ public class Earth : MonoBehaviour {
 			this.transform.localScale = new Vector2 (0, 0);
 			PlayExplosion();
 			gameOver = true;
+			firstTime = false;
 			gameOverHelp ();
 		}
 	}
