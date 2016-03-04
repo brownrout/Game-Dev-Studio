@@ -79,6 +79,7 @@
 'Assets/Scripts/Asteroid.cs'
 'Assets/Scripts/Destroyer.cs'
 'Assets/Scripts/Earth.cs'
+'Assets/Scripts/HighScore.cs'
 'Assets/Scripts/Level.cs'
 'Assets/Scripts/Missile.cs'
 'Assets/Scripts/Moon.cs'

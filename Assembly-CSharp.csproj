@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Asteroid.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Earth.cs" />
+     <Compile Include="Assets\Scripts\HighScore.cs" />
      <Compile Include="Assets\Scripts\Level.cs" />
      <Compile Include="Assets\Scripts\Missile.cs" />
      <Compile Include="Assets\Scripts\Moon.cs" />

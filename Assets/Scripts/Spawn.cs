@@ -18,11 +18,8 @@ public class Spawn : MonoBehaviour {
 	}
 
 	void Update() {
-
-		GameObject levelObj = GameObject.Find("earth");  
-		Level level = levelObj.GetComponent<Level> ();
 	
-		switch (level.lvl)
+		switch (Level.lvl)
 		{
 		// progressive level difficulty
 		case 1:
@@ -48,16 +45,12 @@ public class Spawn : MonoBehaviour {
 	
 	void SpawnAsteroid() {
 
-		GameObject EarthDestroyed = GameObject.Find("earth");
-		Earth earth = EarthDestroyed.GetComponent<Earth> ();
-		Level level = EarthDestroyed.GetComponent<Level> ();
-
-		if (!earth.gameOver) {	
-			if (level.lvl < 3) {
+		if (!Earth.gameOver) {	
+			if (Level.lvl < 3) {
 				// spawn larger asteroids after level 2
 				GameObject asteroid = (GameObject)Instantiate (asteroidPrefab, transform.position, Quaternion.Euler (0.0f, 0.0f, Random.Range (0.0f, 360.0f)));
 				asteroid.GetComponent<Asteroid> ().asteroidType = 1;
-			} else if (level.lvl < 5) {
+			} else if (Level.lvl < 5) {
 				int x = Random.Range (0, 5);
 				if (x == 3) {
 					// spawn a larger asteroid every 1 in 4

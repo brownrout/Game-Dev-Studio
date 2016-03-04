@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
 
-	public float counter = 0.0f;
+	public static float counter = 0.0f;
 
 	void Update () {
 		GameObject EarthDestroyed = GameObject.Find("earth");  
 		Earth earth = EarthDestroyed.GetComponent<Earth> ();
-		if (!earth.gameOver) {
+		if (!Earth.gameOver) {
 			counter += Time.deltaTime;
 			UpdateScoreText ();
 		}

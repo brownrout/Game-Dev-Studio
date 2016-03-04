@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour {
 
-	public int lvl;
+	public static int lvl;
 	public GameObject myText;
 
 
@@ -13,7 +13,7 @@ public class Level : MonoBehaviour {
 		lvl = 1;
 		print (lvl);
 		myText.SetActive(false);
-		InvokeRepeating ("LevelUp",1.0f,1.5f);
+		InvokeRepeating ("LevelUp",1.0f,1.01f);
 	}
 
 	void Update() {
@@ -32,10 +32,8 @@ public class Level : MonoBehaviour {
 		GameObject currentScore = GameObject.Find("TimeText");  
 		ScoreKeeper scoreText = currentScore.GetComponent<ScoreKeeper> ();
 
-		GameObject EarthDestroyed = GameObject.Find("earth");  
-		Earth earth = EarthDestroyed.GetComponent<Earth> ();
 
-		if ( (int)scoreText.counter % 20 == 0 && !earth.gameOver && (int)scoreText.counter != 0) {
+		if ( (int)ScoreKeeper.counter % 20 == 0 && !Earth.gameOver && (int)ScoreKeeper.counter != 0) {
 			lvl += 1;
 			print (lvl);
 			myText.SetActive(true);

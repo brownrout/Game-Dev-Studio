@@ -61,13 +61,14 @@ public class Asteroid : MonoBehaviour {
 			PlayExplosion (this.asteroidType);
 		} else if (col.gameObject.name == "missile(Clone)" || col.gameObject.name == "satellite(Clone)" || col.gameObject.name == "satellite2(Clone)" || col.gameObject.name == "satellite3(Clone)" || col.gameObject.name == "satellite3(Clone)(Clone)") {
 			PlayExplosion (this.asteroidType);
-			GameObject oreScore = GameObject.Find("OreText");  
-			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 
 			if (this.asteroidType == 2) {  //bigger asteroids give this much additional ore
-			OreText.increaseOre (25);
+				OreKeeper.increaseOre (25);
 			}
-			OreText.increaseOre (25);  //smaller asteroids give the baseline ore
+			if (this.asteroidType == 3) {  //bigger asteroids give this much additional ore
+				OreKeeper.increaseOre (75);
+			}
+			OreKeeper.increaseOre (25);  //smaller asteroids give the baseline ore
 		}
 	}
 

@@ -85,6 +85,8 @@ public class Satellite : MonoBehaviour {
 			if (this.satType == -1) {
 				PlayExplosion (3);
 			}
+		} else if (col.gameObject.name == "earth" && this.satType == -1) {
+			Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		}
 	}
 

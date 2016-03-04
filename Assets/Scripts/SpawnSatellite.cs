@@ -14,32 +14,30 @@ public class SpawnSatellite : MonoBehaviour {
 		Earth earth = EarthDestroyed.GetComponent<Earth> ();
 
 		//first satellite, simple orbit
-		if (Input.GetKeyDown("1") && !earth.gameOver) {
-			GameObject oreScore = GameObject.Find("OreText");  
-			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
-			if (OreText.totalOre >= 250) {
+		if (Input.GetKeyDown("1") && !Earth.gameOver) {
+			if (OreKeeper.totalOre >= 250) {
 				print("Satellite Purchased");
-				OreText.decreaseOre (250);
+				OreKeeper.decreaseOre (250);
 				buySatellite (1);
 			}
 		}
 		//second satellite, inception
-		else if (Input.GetKeyDown("2") && !earth.gameOver) {
+		else if (Input.GetKeyDown("2") && !Earth.gameOver) {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
-			if (OreText.totalOre >= 450) {
+			if (OreKeeper.totalOre >= 450) {
 				print("Satellite Purchased");
-				OreText.decreaseOre (450);
+				OreKeeper.decreaseOre (450);
 				buySatellite(2);
 			}
 		}
 		//third satellite, homing missiles
-		else if (Input.GetKeyDown("3") && !earth.gameOver) {
+		else if (Input.GetKeyDown("3") && !Earth.gameOver) {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
-			if (OreText.totalOre >= 600) {
+			if (OreKeeper.totalOre >= 600) {
 				print("Satellite Purchased");
-				OreText.decreaseOre (600);
+				OreKeeper.decreaseOre (600);
 				buySatellite(3);
 			}
 		}

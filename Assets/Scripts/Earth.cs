@@ -5,15 +5,20 @@ public class Earth : MonoBehaviour {
 
 	public GameObject missilePrefab;
 	private float missile_speed = 6.0f;
-	public bool gameOver;
+	public static bool gameOver;
 	public bool firstTime = true;
 	public GameObject EarthExplode;
 	public GameObject gameOverText;
+	public GameObject helperText;
+	public static int highScore;
 
 
 	void Start() {
+		print(highScore);
 		gameOver = true;
 		gameOverText.SetActive (true);
+		helperText.SetActive (true);
+		ScoreKeeper.counter = 0.0f;
 	}
 
 	// Update is called once per frame
@@ -28,21 +33,26 @@ public class Earth : MonoBehaviour {
 			projectile.GetComponent<Rigidbody2D>().velocity = direction * missile_speed;
 		}
 
+		if (ScoreKeeper.counter > highScore) {
+			highScore = (int)ScoreKeeper.counter;
+		}
+
 		if (gameOver) {
 			gameOverText.SetActive(true);
+			helperText.SetActive (true);
 		}
 		else {
 			gameOverText.SetActive(false);
+			helperText.SetActive(false);
 		}
 
 		if (Input.GetKeyDown("space") && gameOver) {
 
-//			GameObject Spawn = GameObject.Find("SpawnRight");  
-//			Spawn spawn = Spawn.GetComponent<Spawn>();
-		
+			Level.lvl = 1;
+			OreKeeper.totalOre = 0;
+
 			if (firstTime) {
 				gameOver = false;
-//				spawn.StartAlt ();
 				foreach (var gameObj in FindObjectsOfType(typeof(Spawn)) as Spawn[]) {
 					gameObj.GetComponent<Spawn> ().StartAlt();
 				}
@@ -50,7 +60,6 @@ public class Earth : MonoBehaviour {
 				Application.LoadLevel (Application.loadedLevel);
 				firstTime = false;
 				gameOver = false;
-//				spawn.StartAlt ();
 				foreach (var gameObj in FindObjectsOfType(typeof(Spawn)) as Spawn[]) {
 					gameObj.GetComponent<Spawn> ().StartAlt();
 				}
