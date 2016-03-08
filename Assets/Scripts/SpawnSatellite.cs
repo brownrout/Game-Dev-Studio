@@ -7,6 +7,8 @@ public class SpawnSatellite : MonoBehaviour {
 	public GameObject satellitePrefab;
 	public GameObject satellite2Prefab;
 	public GameObject satellite3Prefab;
+	public AudioSource sfxSuccess;
+	public AudioSource sfxFail;
 
 	void Update() {
 
@@ -16,9 +18,12 @@ public class SpawnSatellite : MonoBehaviour {
 		//first satellite, simple orbit
 		if (Input.GetKeyDown("1") && !Earth.gameOver) {
 			if (OreKeeper.totalOre >= 250) {
-				print("Satellite Purchased");
+				sfxSuccess.Play ();
+				print ("Satellite Purchased");
 				OreKeeper.decreaseOre (250);
 				buySatellite (1);
+			} else {
+				sfxFail.Play ();
 			}
 		}
 		//second satellite, inception
@@ -26,9 +31,12 @@ public class SpawnSatellite : MonoBehaviour {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			if (OreKeeper.totalOre >= 450) {
+				sfxSuccess.Play ();
 				print("Satellite Purchased");
 				OreKeeper.decreaseOre (450);
 				buySatellite(2);
+			} else {
+				sfxFail.Play ();
 			}
 		}
 		//third satellite, homing missiles
@@ -36,9 +44,12 @@ public class SpawnSatellite : MonoBehaviour {
 			GameObject oreScore = GameObject.Find("OreText");  
 			OreKeeper OreText = oreScore.GetComponent<OreKeeper> ();
 			if (OreKeeper.totalOre >= 600) {
+				sfxSuccess.Play ();
 				print("Satellite Purchased");
 				OreKeeper.decreaseOre (600);
 				buySatellite(3);
+			} else {
+				sfxFail.Play ();
 			}
 		}
 	}

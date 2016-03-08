@@ -77,16 +77,19 @@ public class Asteroid : MonoBehaviour {
 		if (x == 1) {
 			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
 			explosion.transform.position = transform.position;
+			Earth.AsteroidExplode ();
 			Destroy (this.gameObject);
 		} else if (x == 2) {
 			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
 			explosion.transform.position = transform.position;
 			explosion.transform.localScale = new Vector2 (2f, 2f);
+			Earth.AsteroidExplode ();
 			Destroy (this.gameObject);
 		} else {
 			GameObject explosion = (GameObject)Instantiate (BrownExplosion);
 			explosion.transform.position = transform.position;
 			explosion.transform.localScale = new Vector2 (.5f, .5f);
+			Earth.AsteroidExplode ();
 			Destroy (this.gameObject);
 		}
 	}

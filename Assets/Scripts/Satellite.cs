@@ -13,6 +13,7 @@ public class Satellite : MonoBehaviour {
 	public GameObject child;
 	public GameObject target;
 	public GameObject satellite3Prefab;
+	public AudioSource explodeSFX;
 
 	void Start () {
 		if (satType == 3) {
@@ -83,7 +84,7 @@ public class Satellite : MonoBehaviour {
 			Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		} else if (col.gameObject.name == "asteroid(Clone)" || col.gameObject.name == "asteroid2(Clone)") {
 			if (this.satType == -1) {
-				PlayExplosion (3);
+				PlayExplosion (-1);
 			}
 		} else if (col.gameObject.name == "earth" && this.satType == -1) {
 			Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -94,19 +95,29 @@ public class Satellite : MonoBehaviour {
 		if (x == 1) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.position = transform.position;
+			Earth.SatDiedSound ();
 			Destroy (this.gameObject);
 		} else if (x == 0) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.localScale = new Vector2 (.5f, .5f);
 			explosion.transform.position = transform.position;
+			Earth.SatDiedSound ();
 			Destroy (this.gameObject);
 		} 
 		else if (x == 2) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			// explosion.transform.localScale = new Vector2 (.5f, .5f);
 			explosion.transform.position = transform.position;
+			Earth.SatDiedSound ();
 			Destroy (this.gameObject);
 		} else if (x == 3) {
+			GameObject explosion = (GameObject)Instantiate (RedExplosion);
+			explosion.transform.localScale = new Vector2 (.4f, .4f);
+			explosion.transform.position = transform.position;
+			Earth.SatDiedSound ();
+			Destroy (this.gameObject);
+		}
+		else if (x == -1) {
 			GameObject explosion = (GameObject)Instantiate (RedExplosion);
 			explosion.transform.localScale = new Vector2 (.4f, .4f);
 			explosion.transform.position = transform.position;

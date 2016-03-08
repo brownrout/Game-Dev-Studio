@@ -10,7 +10,13 @@ public class Earth : MonoBehaviour {
 	public GameObject EarthExplode;
 	public GameObject gameOverText;
 	public GameObject helperText;
+	public GameObject titleText;
 	public static int highScore;
+	public AudioSource gameOverSFX;
+	public AudioSource satDeadSFX2;
+	public static AudioSource satDeadSFX;
+	public static AudioSource AsteroidSFX;
+	public AudioSource AsteroidSFX2;
 
 
 	void Start() {
@@ -18,7 +24,10 @@ public class Earth : MonoBehaviour {
 		gameOver = true;
 		gameOverText.SetActive (true);
 		helperText.SetActive (true);
+		titleText.SetActive (true);
 		ScoreKeeper.counter = 0.0f;
+		satDeadSFX = satDeadSFX2;
+		AsteroidSFX = AsteroidSFX2;
 	}
 
 	// Update is called once per frame
@@ -40,9 +49,11 @@ public class Earth : MonoBehaviour {
 		if (gameOver) {
 			gameOverText.SetActive(true);
 			helperText.SetActive (true);
+			titleText.SetActive (true);
 		}
 		else {
 			gameOverText.SetActive(false);
+			titleText.SetActive (false);
 			helperText.SetActive(false);
 		}
 
@@ -74,6 +85,7 @@ public class Earth : MonoBehaviour {
 			PlayExplosion();
 			gameOver = true;
 			firstTime = false;
+			gameOverSFX.Play ();
 			gameOverHelp ();
 		}
 	}
@@ -98,5 +110,13 @@ public class Earth : MonoBehaviour {
 	void PlayExplosion() {
 		GameObject explosion = (GameObject)Instantiate(EarthExplode);
 		explosion.transform.position = transform.position;
+	}
+
+	public static void SatDiedSound(){
+		satDeadSFX.Play ();
+	}
+
+	public static void AsteroidExplode(){
+		AsteroidSFX.Play ();
 	}
 }

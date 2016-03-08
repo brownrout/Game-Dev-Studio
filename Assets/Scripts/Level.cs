@@ -6,6 +6,7 @@ public class Level : MonoBehaviour {
 
 	public static int lvl;
 	public GameObject myText;
+	public AudioSource niceSound;
 
 
 	// Use this for initialization
@@ -34,6 +35,7 @@ public class Level : MonoBehaviour {
 
 
 		if ( (int)ScoreKeeper.counter % 20 == 0 && !Earth.gameOver && (int)ScoreKeeper.counter != 0) {
+			niceSound.Play ();
 			lvl += 1;
 			print (lvl);
 			myText.SetActive(true);
