@@ -5,6 +5,7 @@ public class Moon : MonoBehaviour {
 
 	public float moon_angle = 90.0f;
 	public GameObject GrayExplosion;
+	public AudioSource MoonSFX;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class Moon : MonoBehaviour {
 	public void PlayExplosion() {
 		GameObject explosion = (GameObject)Instantiate(GrayExplosion);
 		explosion.transform.position = transform.position;
+		MoonSFX.Play ();
 		Destroy (this.gameObject);
 	}
 }
